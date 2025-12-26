@@ -1,29 +1,43 @@
 import inquirer from "inquirer";
+import { Context } from "./core/context";
+import { CommandExecutor } from "./core/command-executor";
+import { StorageSingleton } from "./storage/storage.singleton";
+import { AddEntryCommand } from "./commands/add-entry.commands";
+import { ShowEntriesCommand } from "./commands/show-entries.command";
+import { ExitCommand } from "./commands/exit-command";
+
+const context = new Context(StorageSingleton.getInstance());
+const executor = new CommandExecutor();
 
 async function bootstrap() {
-  console.log("Starting application...");
-  inquirer
-    .prompt([
-        {
-            type: 'password',
-            name: 'password',
-            message: 'Enter you password',
-            mask: '*',
-        }
-      /* Pass your questions in here */
-    ])
-    .then((answers) => {
-        console.log('Password entered:', answers.password);
-        
-      // Use user feedback for... whatever!!
-    })
-    .catch((error) => {
-      if (error.isTtyError) {
-        // Prompt couldn't be rendered in the current environment
-      } else {
-        // Something else went wrong
-      }
-    });
+  const { action } = await inquirer.prompt([
+    {
+      type: "list",
+      name: "action",
+      message: "What do you want to do?",
+      choices: [
+        "➕ New memorization record",
+        "📄 Show all records",
+        "🗑️ Delete",
+        "✏️ Edit",
+        "📈 Statistics",
+        "❌ Exit",
+      ],
+    },
+  ]);
+
+  switch (action) {
+    case "➕ New memorization record":
+      await executor.run(new AddEntryCommand(context));
+      break;
+    case "📄 Show all records":
+      await executor.run(new ShowEntriesCommand(context));
+      break;
+    case "❌ Exit":
+      await executor.run(new ExitCommand());
+      break;
+  }
+  bootstrap();
 }
 
 bootstrap();
