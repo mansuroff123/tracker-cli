@@ -12,7 +12,7 @@ const executor = new CommandExecutor();
 async function bootstrap() {
   const { action } = await inquirer.prompt([
     {
-      type: "list",
+      type: "select",
       name: "action",
       message: "What do you want to do?",
       choices: [
