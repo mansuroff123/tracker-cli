@@ -20,7 +20,7 @@ Quran tracker dan Book tracker uchun o'zgartirilgan lekin loyiha struktura va fu
 2. typescript global yoki loyiha uchun o'rnatilgan bo'lishi shart!
 ### 1. reponi klonlash
 ```bash
-git clone https://github.com/USERNAME/tracker-cli.git
+git clone https://github.com/mansuroff123/tracker-cli.git
 cd tracker-cli
 npm install
 npx ts-node src/app.ts
