@@ -23,7 +23,7 @@ Quran tracker dan Book tracker uchun o'zgartirilgan lekin loyiha struktura va fu
 git clone https://github.com/USERNAME/tracker-cli.git
 cd tracker-cli
 npm install
-npx tsx src/app.ts
+npx ts-node src/app.ts
 ```
 
 ## 📷 Preview
