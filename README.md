@@ -1,5 +1,5 @@
 ## 📌 Loyiha haqida
-####📅 Last updated: 2025-12-27
+###📅 Last updated: 2025-12-27
 Bu loyiha o'zbek video ko'rsatmasiga qarab qilindi
 videoda ko'rsatilgan loyihada orginal github repostory ko'rsatilmagan ekan.
 Shu sababli men loyihani 12.27.2025 yil uchun oxirgi yangilanishlar bilan qurib chiqdim.
